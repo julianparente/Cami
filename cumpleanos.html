@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Cumpleaños Camila</title>
+    <link rel="stylesheet" href="css/cumpleanos.css">
+</head>
+<body>
+    <!-- Corazones flotantes de fondo -->
+    <div class="floating-hearts"></div>
+    
+    <!-- Partículas brillantes -->
+    <div class="sparkles"></div>
+    
+    <!-- Música de fondo -->
+    <audio id="bgMusic" preload="auto">
+        <source src="audio/me-gusta.mp3" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+    
+    <!-- Control de música -->
+    <div class="music-control">
+        <button class="music-btn" onclick="toggleMusic()">🎵</button>
+    </div>
+    
+    <!-- Header -->
+    <header class="header">
+        <h1>08 de marzo del 2024</h1>
+    </header>
+    
+    <!-- Contenido principal -->
+    <main class="main-content">
+        <!-- Mensaje de cumpleaños -->
+        <div class="birthday-message">
+            <h2>Feliz cumpleaños amor de mi vida</h2>
+        </div>
+        
+        <!-- Sobre con carta -->
+        <div class="envelope-container">
+            <div class="envelope-image-container" id="envelopeContainer">
+                <img src="img/sobre-cerrado.png" alt="Sobre cerrado" class="envelope-image" id="envelopeImage">
+            </div>
+            <button class="open-btn" id="openBtn">Abrir</button>
+            
+            <!-- Texto que aparece al abrir el sobre -->
+            <div class="letter-content" id="letterContent" style="display: none;">
+                <div class="letter-text">
+                    <p>Feliz cumple hermosita de mi vida, siendo casi programador, este es un regalo que pensaba hacerte desde que sos mi novia, y ahora que tengo el conocimiento para hacer páginas web, por fin pude hacértelo.</p>
+                    
+                    <p>Quiero que sepas que sos lo mejor que tengo, mi apoyo en todo, el amor de mi vida y la persona más especial con la que pude haberme encontrado en el mundo.</p>
+                    
+                    <p>Disfrutá de tu cumpleañito que desde que te conozco siempre quise que no sea un día más para vos, quiero que celebremos tu existencia, que es lo más importante que tu papás me pudieron dar, encima vamos a ver al duko, je.</p>
+                    
+                    <p>Pasalo hermoso en tu día y espero que te guste la paginita que hice, aunque todavía no sea un experto en esto. Te amo ayer, hoy y siempre bebé, cada día un poquito más.</p>
+                </div>
+                <button class="close-btn" id="closeBtn">Cerrar sobre</button>
+            </div>
+        </div>
+        
+        <!-- Galería de fotos -->
+        <div class="gallery-section" id="gallerySection">
+            <div class="photo-gallery" id="photoGallery">
+                <!-- Las imágenes se agregarán aquí -->
+                <div class="photo-item" data-src="img/e-grande.webp">
+                    <img src="img/e-chica.webp" alt="Foto 1" loading="lazy">
+                </div>
+                <div class="photo-item" data-src="img/k-grande.webp">
+                    <img src="img/k-chica.webp" alt="Foto 2" loading="lazy">
+                </div>
+                <div class="photo-item" data-src="img/a-grande.webp">
+                    <img src="img/a-chica.webp" alt="Foto 3" loading="lazy">
+                </div>
+                <div class="photo-item" data-src="img/b-grande.webp">
+                    <img src="img/b-chica.webp" alt="Foto 4" loading="lazy">
+                </div>
+                <div class="photo-item" data-src="img/c-grande.webp">
+                    <img src="img/c-chica.webp" alt="Foto 5" loading="lazy">
+                </div>
+                <div class="photo-item" data-src="img/d-grande.webp">
+                    <img src="img/d-chica.webp" alt="Foto 6" loading="lazy">
+                </div>
+                <div class="photo-item" data-src="img/f-grande.webp">
+                    <img src="img/f-chica.webp" alt="Foto 7" loading="lazy">
+                </div>
+                <div class="photo-item" data-src="img/g-grande.webp">
+                    <img src="img/g-chica.webp" alt="Foto 8" loading="lazy">
+                </div>
+                <div class="photo-item" data-src="img/h-grande.webp">
+                    <img src="img/h-chica.webp" alt="Foto 9" loading="lazy">
+                </div>
+                <div class="photo-item" data-src="img/i-grande.webp">
+                    <img src="img/i-chica.webp" alt="Foto 10" loading="lazy">
+                </div>
+                <div class="photo-item" data-src="img/j-grande.webp">
+                    <img src="img/j-chica.webp" alt="Foto 11" loading="lazy">
+                </div>
+                <div class="photo-item" data-src="img/l-grande.webp">
+                    <img src="img/l-chica.webp" alt="Foto 12" loading="lazy">
+                </div>
+            </div>
+            
+            <!-- Modal para ver fotos en grande -->
+            <div class="photo-modal" id="photoModal">
+                <div class="modal-content">
+                    <span class="close-modal" id="closeModal">&times;</span>
+                    <button class="nav-btn prev-btn" id="prevBtn">&#8249;</button>
+                    <img class="modal-image" id="modalImage" src="" alt="">
+                    <button class="nav-btn next-btn" id="nextBtn">&#8250;</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Sección del video -->
+        <div class="video-section" id="videoSection">
+            <div class="video-message">
+                <h3>Esta canción te la dedico toda la vida</h3>
+            </div>
+            <div class="video-container">
+                <a href="https://www.youtube.com/watch?v=nHVdEWooBoQ" target="_blank" class="youtube-link">
+                    <div class="youtube-thumbnail">
+                        <img src="https://img.youtube.com/vi/nHVdEWooBoQ/maxresdefault.jpg" alt="Video thumbnail">
+                        <div class="play-button">▶</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+                <!-- Título del contador -->
+        <div class="video-message">
+            <h3>Tiempo juntos como novios ❤️</h3>
+        </div>
+
+        <!-- Contador de tiempo juntos -->
+        <div class="love-counter">
+            <div class="counter-display">
+                <div class="time-unit">
+                    <span id="days">0</span>
+                    <label>Días</label>
+                </div>
+                <div class="time-unit">
+                    <span id="hours">0</span>
+                    <label>Horas</label>
+                </div>
+                <div class="time-unit">
+                    <span id="minutes">0</span>
+                    <label>Minutos</label>
+                </div>
+                <div class="time-unit">
+                    <span id="seconds">0</span>
+                    <label>Segundos</label>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/cumpleanos.js"></script>
+</body>
+</html>
