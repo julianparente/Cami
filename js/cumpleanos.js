@@ -409,4 +409,119 @@ document.addEventListener('DOMContentLoaded', function() {
             videoFallback.style.display = 'block';
         }
     }
+    
+    // Funcionalidad para la línea de tiempo
+    initializeTimeline();
 });
+
+// Función para inicializar la línea de tiempo con efectos especiales
+function initializeTimeline() {
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    
+    // Observer para animaciones de entrada
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.animationPlayState = 'running';
+                
+                // Crear corazones cuando el elemento entra en vista
+                setTimeout(() => {
+                    for (let i = 0; i < 5; i++) {
+                        setTimeout(createFloatingHeart, i * 150);
+                    }
+                }, 300);
+            }
+        });
+    }, {
+        threshold: 0.3,
+        rootMargin: '0px 0px -50px 0px'
+    });
+    
+    timelineItems.forEach(item => {
+        observer.observe(item);
+        
+        // Pausar animación inicialmente
+        item.style.animationPlayState = 'paused';
+        
+        // Efectos de hover mejorados
+        const content = item.querySelector('.timeline-content');
+        const icon = item.querySelector('.timeline-icon');
+        
+        content.addEventListener('mouseenter', function() {
+            // Crear corazones en hover
+            for (let i = 0; i < 3; i++) {
+                setTimeout(createFloatingHeart, i * 100);
+            }
+            
+            // Crear algunas partículas brillantes
+            for (let i = 0; i < 2; i++) {
+                setTimeout(createSparkle, i * 200);
+            }
+            
+            // Efecto de brillo en el icono
+            if (icon) {
+                icon.style.transform = 'translateY(-50%) scale(1.1) rotate(15deg)';
+                icon.style.boxShadow = '0 8px 25px rgba(255, 105, 180, 0.6)';
+            }
+        });
+        
+        content.addEventListener('mouseleave', function() {
+            if (icon) {
+                icon.style.transform = 'translateY(-50%)';
+                icon.style.boxShadow = '0 6px 20px rgba(255, 105, 180, 0.4)';
+            }
+        });
+        
+        // Efecto de click para momentos especiales
+        content.addEventListener('click', function() {
+            // Explosión de corazones al hacer click
+            for (let i = 0; i < 15; i++) {
+                setTimeout(createFloatingHeart, i * 50);
+            }
+            
+            // Explosión de partículas brillantes
+            for (let i = 0; i < 8; i++) {
+                setTimeout(createSparkle, i * 80);
+            }
+            
+            // Efecto de pulso temporal
+            this.style.transform = 'translateY(-5px) scale(1.05)';
+            setTimeout(() => {
+                this.style.transform = 'translateY(-5px) scale(1.02)';
+            }, 200);
+        });
+    });
+    
+    // Animación especial para la fecha actual (último elemento)
+    const lastTimelineItem = timelineItems[timelineItems.length - 1];
+    if (lastTimelineItem) {
+        const lastIcon = lastTimelineItem.querySelector('.timeline-icon');
+        if (lastIcon) {
+            // Hacer que el último icono tenga un pulso constante
+            setInterval(() => {
+                lastIcon.style.transform = 'translateY(-50%) scale(1.15)';
+                setTimeout(() => {
+                    lastIcon.style.transform = 'translateY(-50%) scale(1)';
+                }, 500);
+            }, 2000);
+        }
+    }
+    
+    // Efecto de escritura para las fechas
+    const timelineDates = document.querySelectorAll('.timeline-date');
+    timelineDates.forEach((date, index) => {
+        const originalText = date.textContent;
+        date.textContent = '';
+        
+        setTimeout(() => {
+            let i = 0;
+            const typeEffect = setInterval(() => {
+                date.textContent += originalText[i];
+                i++;
+                if (i >= originalText.length) {
+                    clearInterval(typeEffect);
+                }
+            }, 100);
+        }, 1000 + (index * 200));
+    });
+}
