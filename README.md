@@ -13,7 +13,6 @@ Este proyecto consiste en el desarrollo de una Landing Page de alta fidelidad vi
 
 - **Frontend:** HTML5 Semántico y CSS3 Avanzado (Custom Properties, Animaciones).
 - **Interactividad:** JavaScript para efectos dinámicos y manejo del DOM.
-- **Librerías (opcional):** [Menciona si usaste AOS, Animate.css o Google Fonts].
 
 ## 🛠 Propósito del Proyecto
 
