@@ -18,6 +18,12 @@ Este proyecto consiste en el desarrollo de una Landing Page de alta fidelidad vi
 
 Este repositorio forma parte de mi portfolio personal como una muestra de mi capacidad de maquetación avanzada y sensibilidad estética, demostrando que el desarrollo técnico y el diseño visual pueden converger en un producto digital de calidad superior.
 
-## 🖋️ Autor
+## 🔐 Credenciales de Acceso
+
+Para ingresar a la experiencia, utilizar los siguientes datos:
+- **Nombre:** Camila
+- **Aniversario:** 08/03/2026
+
+## �️ Autor
 
 **Julián Parente** - Desarrollador Full-Stack
